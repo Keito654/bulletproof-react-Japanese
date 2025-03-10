@@ -1,35 +1,35 @@
-# Bulletproof React 🛡️ ⚛️
+# Bulletproof React（Reactを防弾に）🛡️ ⚛️
 
 [![MIT License](https://img.shields.io/github/license/alan2207/bulletproof-react)](https://github.com/alan2207/bulletproof-react/blob/master/LICENSE)
 [![Next.js App CI](https://github.com/alan2207/bulletproof-react/actions/workflows/nextjs-app-ci.yml/badge.svg)](https://github.com/alan2207/bulletproof-react/actions/workflows/nextjs-app-ci.yml)
 [![Next.js Pages CI](https://github.com/alan2207/bulletproof-react/actions/workflows/nextjs-pages-ci.yml/badge.svg)](https://github.com/alan2207/bulletproof-react/actions/workflows/nextjs-pages-ci.yml)
 [![React Vite CI](https://github.com/alan2207/bulletproof-react/actions/workflows/react-vite-ci.yml/badge.svg)](https://github.com/alan2207/bulletproof-react/actions/workflows/react-vite-ci.yml)
 
-A simple, scalable, and powerful architecture for building production ready React applications.
+本番環境に対応したReactのアプリケーションを作るためのシンプルで、拡張性が高い、強力なアーキテクチャ
 
-## Introduction
+## はじめに
 
-React is an excellent tool for building front-end applications. It has a diverse ecosystem with hundreds of great libraries for literally anything you might need. However, being forced to make so many choices can be overwhelming. It is also very flexible, you can write React applications in any way you like, but that flexibility comes with a cost. Since there is no pre-defined architecture that developers can follow, it often leads to a messy, inconsistent, and over-complicated codebase.
+Reactはとても素晴らしいフロントエンドアプリケーション開発ツールです。必要なものは文字通り何でもある、数百の素晴らしいライブラリを持つ多様なエコシステムもあります。しかし、選定をしなければならない量に圧倒されるでしょう。また、Reactは柔軟性が非常に高く、あなたが好きな方法でアプリケーションを書くことができるとも言えますが、その柔軟性にはコストが伴います。さらに、開発者が参考にできる定義済みのアーキテクチャがないため、乱雑で、一貫性がなく、必要以上に複雑なコードになることがよくあります。
 
-This repo attempts to present a way of creating React applications using some of the best tools in the ecosystem with a good project structure that scales very well. Based on my experience working with a lot of different codebases, this architecture turns out to be the most effective.
+このリポジトリはエコシステムにあるベストなツールと拡張性に優れたプロジェクト構成を使ったReactアプリケーションを作る方法を提示することを試みます。さまざまなコードベースで作業した経験から、このアーキテクチャが最も効果的であることが分かりました。
 
-The goal here is to serve as a collection of resources and best practices when developing React applications. It is supposed to showcase solving most of the real-world problems of an application in a practical way and help developers write better applications.
+このレポジトリのゴールはReactのアプリケーションを開発する際のリソースとベストプラクティスを提供することです。アプリケーションで実際に起こる問題を実用的な方法で解決し、開発者がより良いアプリケーションを書けるよう手助けすることを目指します。
 
-Feel free to explore the sample app codebase to get the most value out of the repo.
+このリポジトリから最大限の価値を得られるよう、気軽にサンプルアプリのコードを調べてみてください。
 
-## What makes a React application "bulletproof"?
+## Reactアプリケーションを「防弾」にするとは？
 
-This repo doesn't aim to be a silver bullet for all React applications as there are many different use cases, but it tries to provide a solid foundation for building applications based on the following principles:
+このレポジトリはさまざまなユースケースのReactアプリケーションに対応する銀の弾丸になることを目指してはいません。しかし、次の原則に基づいた、アプリケーションを作る上での強固な基盤を提供することを目指します。
 
-- Easy to get started with
-- Simple to understand and maintain
-- Uses the right tools for the job
-- Clean boundaries between different parts of the application
-- Everyone on the team is on the same page when it comes to how things are done
-- Secure
-- Performant
-- Scalable in terms of codebase and team size
-- Issues detectable as early as possible
+- 始めやすい
+- 理解しやすく、維持しやすい
+- 仕事に適したツールを使う
+- アプリケーションのさまざまな部品の間に明確な境界を置く
+- 物事の進め方に関して、チーム全員が同じ認識を持つ
+- セキュア
+- パフォーマンスが高い
+- コードやチームの規模への拡張性が高い
+- 出来るだけ早く問題を見つけられる
 
 #### Disclaimer:
 
