@@ -31,11 +31,11 @@ Reactはとても素晴らしいフロントエンドアプリケーション開
 - コードやチームの規模への拡張性が高い
 - 出来るだけ早く問題を見つけられる
 
-#### Disclaimer:
+#### 免責事項:
 
-This is not supposed to be a template, boilerplate or a framework. It is an opinionated guide that shows how to do some things in a certain way. You are not forced to do everything exactly as it is shown here, decide what works best for you and your team and stay consistent with your style.
+このリポジトリはテンプレートやボイラープレート、フレームワークではありません。特定の方法で物事を行うやり方を示す独断的なガイドです。ここで示したことを全て正確に行う必要はありません。あなた自身、それからあなたのチームにとって何がベストかを決め、スタイルの一貫性を保ちましょう。
 
-To get most out of it, do not get limited by the technologies used in this sample app, but rather focus on the principles and the concepts that are being presented here. The tools and libraries used here are just a suggestion, you can always replace them with something that fits your needs better. Sometimes, your project might require a slightly different approach, and that's totally fine.
+最大限に活用するには、サンプルアプリで使われている技術だけを使うようにするのではなく、示されている原則とコンセプトに注目する必要があります。ここで使われているツールやライブラリは提案にすぎず、必要に応じてより良いものに置き換えることが可能です。時折、あなたのプロジェクトでは少し違ったアプローチをとる必要があるかもしれません。これはまったく問題ありません。
 
 ## Table Of Contents:
 
