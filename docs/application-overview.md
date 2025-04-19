@@ -1,35 +1,35 @@
-# 💻 Application Overview
+# 💻 アプリケーションの概要
 
-The application is relatively simple. Users can create teams where other users can join, and they start discussions on different topics between each other.
+アプリケーションは比較的シンプルです。ユーザーはチームを作ることができます。他のユーザーはチームに参加することができ、さまざまなトピックについてディスカッションを開始できます。
 
-A team is created during the registration if the user didn't choose to join an existing team and the user becomes the admin of it.
+ユーザーが既存のチームに参加することを選択しなかった場合、登録中にチームが作成され、ユーザーはそのチームの管理者となります。
 
-[Demo](https://bulletproof-react-app.netlify.app)
+[デモ](https://bulletproof-react-app.netlify.app)
 
-## Data model
+## データモデル
 
-The application contains the following models:
+アプリケーションは次のモデルを含みます:
 
-- User - can have one of these roles:
+- ユーザー - 1つの役割を持つ:
 
-  - `ADMIN` can:
-    - create/edit/delete discussions
-    - create/delete all comments
-    - delete users
-    - edit own profile
-  - `USER` - can:
-    - edit own profile
-    - create/delete own comments
+  - `ADMIN`(管理者):
+    - デスカッションを作成・編集・削除できる
+    - 全てのコメントを作成・削除できる
+    - ユーザーを削除できる
+    - 自身のプロフィールを編集できる
+  - `USER`(ユーザー):
+    - 自身のプロフィールを編集できる
+    - 自身のコメントを作成・削除できる
 
-- Team: represents a team that has 1 admin and many users that can participate in discussions between each other.
+- チーム: 1人の管理者と、お互いのディスカッションに参加できる多数のユーザーを持つチームを表す
 
-- Discussion: represents discussions created by team members.
+- ディスカッション: チームメンバーによって作成されたディスカッションを表す
 
-- Comment: represents all the messages in a discussion.
+- コメント: ディスカッションにある全てのメッセージを表す
 
-## Get Started
+## 開始
 
-To get started, check the README.md file in the application you want to run.
+アプリケーションを開始するには、利用したいアプリケーションのREADME.mdを参照してください。
 
 - [React Vite](../apps/react-vite/README.md)
 - [Next.js App Router](../apps/nextjs-app/README.md)
