@@ -1,12 +1,12 @@
-# ⚙️ Project Standards
+# ⚙️ プロジェクト標準
 
-Enforcing project standards is crucial for maintaining code quality, consistency, and scalability in a React application. By establishing and adhering to a set of best practices, developers can ensure that the codebase remains clean, organized, and easy to maintain.
+プロジェクト基準を施行することはReactアプリケーションのコード品質、一貫性、スケーラビリティを維持する上で重要です。一連のベストプラクティスを確立し遵守することで、開発者はコードベースがクリーンで、整理されていて、維持しやすいように保つことができます。
 
 #### ESLint
 
-ESLint serves as a valuable linting tool for JavaScript, helping developers in maintaining code quality and adhering to coding standards. By configuring rules in the `.eslintrc.js` file, ESLint helps identify and prevent common errors, ensuring code correctness and promoting consistency throughout the codebase. This approach not only helps in catching mistakes early but also enforces uniformity in coding practices, thereby enhancing the overall quality and readability of the code.
+ESLintは有用なJavaScriptのリントツールとして機能します。これは開発者がコード品質を維持し、コーディング規約を守れるよう手助けしてくれます。`.eslintrc.js`ファイルにルールを設定することで、普遍的なエラーを特定・防止し、コードの正確性を確保し、コードベース全体の一貫性向上を促進します。このアプローチはミスを簡単に見つけるだけでなく、コーディング方法を統一するよう強制し、コードの全体的な品質や可読性を強化することもできます。
 
-[ESLint Configuration Example Code](../apps/react-vite/.eslintrc.cjs)
+[ESLintの設定のサンプルコード](../apps/react-vite/.eslintrc.cjs)
 
 #### Prettier
 
