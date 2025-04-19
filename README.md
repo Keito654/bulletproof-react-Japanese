@@ -37,32 +37,32 @@ Reactはとても素晴らしいフロントエンドアプリケーション開
 
 最大限に活用するには、サンプルアプリで使われている技術だけを使うようにするのではなく、示されている原則とコンセプトに注目する必要があります。ここで使われているツールやライブラリは提案にすぎず、必要に応じてより良いものに置き換えることが可能です。時折、あなたのプロジェクトでは少し違ったアプローチをとる必要があるかもしれません。これはまったく問題ありません。
 
-## Table Of Contents:
+## 目次:
 
-- [💻 Application Overview](docs/application-overview.md)
-- [⚙️ Project Standards](docs/project-standards.md)
-- [🗄️ Project Structure](docs/project-structure.md)
-- [🧱 Components And Styling](docs/components-and-styling.md)
-- [📡 API Layer](docs/api-layer.md)
-- [🗃️ State Management](docs/state-management.md)
-- [🧪 Testing](docs/testing.md)
-- [⚠️ Error Handling](docs/error-handling.md)
-- [🔐 Security](docs/security.md)
-- [🚄 Performance](docs/performance.md)
-- [🌐 Deployment](docs/deployment.md)
-- [📚 Additional Resources](docs/additional-resources.md)
+- [💻 アプリケーションの概要](docs/application-overview.md)
+- [⚙️ プロジェクト標準](docs/project-standards.md)
+- [🗄️ プロジェクトの構成](docs/project-structure.md)
+- [🧱 コンポーネントとスタイリング](docs/components-and-styling.md)
+- [📡 APIレイヤー](docs/api-layer.md)
+- [🗃️ 状態管理](docs/state-management.md)
+- [🧪 テスト](docs/testing.md)
+- [⚠️ エラーハンドリング](docs/error-handling.md)
+- [🔐 セキュリティ](docs/security.md)
+- [🚄 パフォーマンス](docs/performance.md)
+- [🌐 デプロイ](docs/deployment.md)
+- [📚 追加リソース](docs/additional-resources.md)
 
-## Contributing
+## コントリビュート
 
-Contributions are always welcome! If you have any ideas, suggestions, fixes, feel free to contribute. You can do that by going through the following steps:
+コントリビュートはいつでも歓迎しています！もしアイディア、提案、修正があれば遠慮なくコントリビュートしてください。次の手順で行うことができます：
 
-1. Clone this repo
-2. Create a branch: `git checkout -b your-feature`
-3. Execute the `yarn prepare` script.
-4. Make some changes
-5. Test your changes
-6. Push your branch and open a Pull Request
+1. リポジトリをクローンする
+2. ブランチを作成する: `git checkout -b your-feature`
+3. スクリプト`yarn prepare`を実行する。
+4. 変更を行う。
+5. 変更に対しテストを行う。
+6. あなたのブランチをプッシュし、プルリクエストを開く。
 
-## License
+## ライセンス
 
 [MIT](/LICENSE)
