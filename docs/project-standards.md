@@ -10,34 +10,23 @@ ESLintは有用なJavaScriptのリントツールとして機能します。こ�
 
 #### Prettier
 
-Prettier is a useful tool for maintaining consistent code formatting in your project. By enabling the "format on save" feature in your IDE, code is automatically formatted according to the rules set in the `.prettierrc` configuration file. This practice ensures a uniform code style across your codebase and provides helpful feedback on code issues. If the auto-formatting fails, it signals potential syntax error. Furthermore, Prettier can be integrated with ESLint to handle code formatting tasks alongside enforcing coding standards effectively throughout the development process.
+Prettierはプロジェクト内で一貫したコードフォーマットを維持するのに役立つツールです。IDEの"format on save(保存時にフォーマット)"を有効にすることで、設定ファイル`.prettierrc`に書かれたルールに従って、コードが自動的にフォーマットされます。これを行うことで、コードベース間のコードスタイルを統一し、コードの問題について役立つフィードバックを提供してくれます。もし自動的なフォーマットが失敗した場合、隠れた構文エラーがあるという警告です。さらに、PrettierはESLitと統合することも可能でき、開発プロセスを通してコードフォーマットとコーディング規約の確保を効率的に行うことができます。
 
-[Prettier Configuration Example Code](../apps/react-vite/.prettierrc)
+[Prettierの設定のサンプルコード](../apps/react-vite/.prettierrc)
 
 #### TypeScript
 
-ESLint is effective for detecting language-related bugs in JavaScript. However, due to JavaScript's dynamic nature, ESLint may not catch all runtime data issues, especially in complex projects. To address this, TypeScript is recommended. TypeScript is valuable for identifying issues during large refactoring processes that may go unnoticed. When refactoring, prioritize updating type declarations first, then resolving TypeScript errors throughout the project. It's important to note that while TypeScript enhances development confidence by performing type checking at build time, it does not prevent runtime failures. Here is a [great resource on using TypeScript with React](https://react-typescript-cheatsheet.netlify.app/).
+ESLintはJavaScriptの言語に関するバグを発見するのに効果的です。しかし、JavaScriptの動的な性質により、特に複雑なプロジェクトにおいてESLintは全ての実行データの問題を捕らえることができません。これに対処するため、TypeScriptの利用を推奨します。TypeScriptは大規模なリファクタリング作業中に見落とされがちな問題を特定するうえで非常に役立ちます。リファクタリングの際、第一に型宣言を更新することを優先し、その後プロジェクトのTypeScriptのエラーを解決します。重要な点として、TypeScriptはビルド時に型チェックを実行し開発の信頼性を高めてくれますが、実行時のエラーを防ぐわけではないことに注意が必要です。こちらは[TypeScriptとReactを使った素晴らしい資料です](https://react-typescript-cheatsheet.netlify.app/)。
 
 #### Husky
 
-Husky is a valuable tool for implementing and executing git hooks in your workflow. By utilizing Husky to run code validations before each commit, you can ensure that your code maintains high standards and that no faulty commits are pushed to the repository. Husky enables you to perform various tasks such as linting, code formatting, and type checking before allowing code pushes. You can check how to configure it [here](https://typicode.github.io/husky/#/?id=usage).
+Huskyはワークフローの中でgit hooksを実装・実行する素晴らしいツールです。Huskyを活用しコミット前にコードの検証を行うことで、コードを高水準に保ち、リポジトリにエラーがあるコードをコミットしないようにすることができます。Huskyはコードのプッシュを許可する前に、リンティング、コードフォーマット、型チェックなど様々なタスクを実行できます。こちらで[設定方法をチェックしてください](https://typicode.github.io/husky/#/?id=usage)。
 
-#### Absolute imports
+#### 絶対パスによるインポート
 
-Absolute imports should always be configured and used because it makes it easier to move files around and avoid messy import paths such as `../../../component`. Wherever you move the file, all the imports will remain intact. Here is how to configure it:
+絶対パスによるインポートは常に設定し利用するべきです。なぜなら、`../../../component`のようなややこしいインポートを避けることができるからです。また、ファイルの移動を簡単にしてくれます。どこにファイルを移動しても、インポート文が壊れることはありません。ここに設定方法を記載します:
 
-For JavaScript (`jsconfig.json`) projects:
-
-```json
-"compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
-```
-
-For TypeScript (`tsconfig.json`) projects:
+JavaScriptプロジェクト (`jsconfig.json`) :
 
 ```json
 "compilerOptions": {
@@ -48,13 +37,24 @@ For TypeScript (`tsconfig.json`) projects:
   }
 ```
 
-It is also possible to define multiple paths for various folders(such as `@components`, `@hooks`, etc.), but using `@/*` works very well because it is short enough so there is no need to configure multiple paths and it differs from other dependency modules so there is no confusion in what comes from `node_modules` and what is our source folder. That means that anything in the `src` folder can be accessed via `@`, e.g some file that lives in `src/components/my-component` can be accessed using `@/components/my-component` instead of `../../../components/my-component`.
+TypeScriptプロジェクト (`tsconfig.json`) :
 
-#### File naming conventions
+```json
+"compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+```
 
-We can also enforce the file naming conventions and folder naming conventions in the project. For example, you can enforce that all files should be named in `kebab-case`. This can help you to keep your codebase consistent and easier to navigate.
+もちろん、個々のフォルダにそれぞれのパスを定義することも可能です（例えば、`@components`, `@hooks`など）。しかし、`@/*`は短く、複数のパスの設定を行う必要がありません。また、他の依存モジュールのパスとは異なるため、何が`node_modules`からインポートされており、何が自分たちのソースフォルダから来ているのか混乱することがありません。これは`src`フォルダにあるものはすべて`@`でアクセスできることを意味します。例えば`src/components/my-component`内にあるファイルにアクセスする際、`../../../components/my-component`と書く代わりに`@/components/my-component`と書くことができます。
 
-To enforce this, you can use ESLint:
+#### ファイルの命名規則
+
+プロジェクトで、ファイルやフォルダの命名規則を強制させることもできます。例えば、すべてのファイルはケバブケースで命名されるようにする、ということが可能です。これによりコードベースの一貫性が保たれ、ナビゲートが簡単になります。
+
+強制するには、ESLintを利用します:
 
 ```js
 'check-file/filename-naming-convention': [
@@ -63,14 +63,14 @@ To enforce this, you can use ESLint:
       '**/*.{ts,tsx}': 'KEBAB_CASE',
   },
   {
-      // ignore the middle extensions of the filename to support filename like bable.config.js or smoke.spec.ts
+      // babel.config.jsやsmoke.spec.tsのようなファイル名をサポートするため、名前の中間にある拡張子を無視する
       ignoreMiddleExtensions: true,
   },
 ],
 'check-file/folder-naming-convention': [
   'error',
   {
-    // all folders within src (except __tests__)should be named in kebab-case
+    // _tests_を除く、srcにあるすべてのフォルダの前をケバブケースにする
     'src/**/!(__tests__)': 'KEBAB_CASE',
   },
 ],
