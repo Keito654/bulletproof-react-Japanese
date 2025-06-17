@@ -70,7 +70,7 @@ feature間のインポートを禁止するため、ESLintを利用できます:
     {
         zones: [
             // feature間のインポートを無効化する:
-            // 例えば、src/features/discussionsはfrom src/features/commentsをインポートすべきではない、など。
+            // 例えば、src/features/discussionsはsrc/features/commentsをインポートすべきではない、など。
             {
                 target: './src/features/auth',
                 from: './src/features',
