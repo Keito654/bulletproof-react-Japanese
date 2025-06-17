@@ -1,76 +1,76 @@
-# 🗄️ Project Structure
+# 🗄️ プロジェクトの構成
 
-Most of the code lives in the `src` folder and looks something like this:
+ほとんどのコードは`src`フォルダに入っており、次のような構成になります：
 
 ```sh
 src
 |
-+-- app               # application layer containing:
-|   |                 # this folder might differ based on the meta framework used
-|   +-- routes        # application routes / can also be pages
-|   +-- app.tsx       # main application component
-|   +-- provider.tsx  # application provider that wraps the entire application with different global providers - this might also differ based on meta framework used
-|   +-- router.tsx    # application router configuration
-+-- assets            # assets folder can contain all the static files such as images, fonts, etc.
++-- app               # アプリケーション層を含む:
+|   |                 # このフォルダは使っているメタフレームワークによって異なるかもしれません
+|   +-- routes        # アプリケーションのルートフォルダ / ページフォルダにもなる
+|   +-- app.tsx       # アプリケーションのメインコンポーネント
+|   +-- provider.tsx  # さまざまなグローバルプロバイダーでアプリケーション全体をラップする、アプリケーションプロバイダー - 使っているメタフレームワークによって異なるかもしれません
+|   +-- router.tsx    # アプリケーションのルーティング設定
++-- assets            # 画像、フォントファイルなどの静的ファイルを全て含むアセットフォルダ
 |
-+-- components        # shared components used across the entire application
++-- components        # アプリケーション全体を通して使われる共通コンポーネント
 |
-+-- config            # global configurations, exported env variables etc.
++-- config            # グローバル設定やエクスポートされた環境変数など
 |
-+-- features          # feature based modules
++-- features          # 機能ベースのモジュール
 |
-+-- hooks             # shared hooks used across the entire application
++-- hooks             # アプリケーション全体を通して使われる共通hooks
 |
-+-- lib               # reusable libraries preconfigured for the application
++-- lib               # アプリケーション用に作成したライブラリ
 |
-+-- stores            # global state stores
++-- stores            # グローバルな状態のストア
 |
-+-- testing           # test utilities and mocks
++-- testing           # テストのためのユーティリティファイルやモックファイル
 |
-+-- types             # shared types used across the application
++-- types             # アプリケーション全体で使う型
 |
-+-- utils             # shared utility functions
++-- utils             # 共通ユーティリティ関数
 ```
 
-For easy scalability and maintenance, organize most of the code within the features folder. Each feature folder should contain code specific to that feature, keeping things neatly separated. This approach helps prevent mixing feature-related code with shared components, making it simpler to manage and maintain the codebase compared to having many files in a flat folder structure. By adopting this method, you can enhance collaboration, readability, and scalability in the application's architecture.
+拡張と維持を簡単にするため、ほとんどのコードをfeaturesフォルダにまとめます。各featureフォルダはその機能固有のコードが含まれ、きちんと分割されている必要があります。このアプローチは機能に関連するコードが共通コンポーネントに混ざるのを防ぎ、フラットなフォルダに多くのファイルが入っている構成と比べコードベースの維持管理をシンプルにします。この手法を採用することで、アプリケーションのアーキテクチャにおける共同作業の効率性、可読性、拡張性を強化できます。
 
-A feature could have the following structure:
+１つのfeatureフォルダは次の構成を取ります:
 
 ```sh
 src/features/awesome-feature
 |
-+-- api         # exported API request declarations and api hooks related to a specific feature
++-- api         # APIリクエストの定義やこの機能に関連するAPIのhooks
 |
-+-- assets      # assets folder can contain all the static files for a specific feature
++-- assets      # この機能で利用する静的ファイルを全て含むアセットフォルダ
 |
-+-- components  # components scoped to a specific feature
++-- components  # 機能に関連するコンポーネント
 |
-+-- hooks       # hooks scoped to a specific feature
++-- hooks       # 機能に関連するhooks
 |
-+-- stores      # state stores for a specific feature
++-- stores      # 機能に関連する状態のストア
 |
-+-- types       # typescript types used within the feature
++-- types       # この機能の中で利用するtypescriptの型
 |
-+-- utils       # utility functions for a specific feature
++-- utils       # この機能で利用するユーティリティ関数
 ```
 
-NOTE: You don't need all of these folders for every feature. Only include the ones that are necessary for the feature.
+注意: これらのフォルダ全てを各featureフォルダに作る必要はありません。機能に必要なもののみ含めます。
 
-In some cases it might be more practical to keep all API calls outside of the features folders in a dedicated `api` folder where all API calls are defined. This can be useful if you have a lot of shared API calls between features.
+場合によっては、APIコールをfeaturesフォルダの外、全てのAPIコールが定義されている専用の`api`フォルダに保存する方が実用的かもしれません。これは、複数の機能間で多くのAPIコールを共有する場合に便利です。
 
-In the past, it was recommended to use barrel files to export all the files from a feature. However, it can cause issues for Vite to do tree shaking and can lead to performance issues. Therefore, it is recommended to import the files directly.
+かつては、featureフォルダにある全てのファイルをエクスポートするバレルファイルの利用が推奨されていました。しかし、バレルファイルはViteがツリーシェイキングを行う際に問題が発生したり、パフォーマンスの問題を起こす原因となります。そのため、ファイルを直接インポートすることを推奨します。
 
-It might not be a good idea to import across the features. Instead, compose different features at the application level. This way, you can ensure that each feature is independent which makes the codebase less convoluted.
+featureフォルダ間でインポートを行うのは得策ではありません。代わりに、アプリケーションレベルで異なるfeatureを構成してください。この方法により、各機能が独立していることが保証され、コードベースの複雑さを軽減できます。
 
-To forbid cross-feature imports, you can use ESLint:
+feature間のインポートを禁止するため、ESLintを利用できます:
 
 ```js
 'import/no-restricted-paths': [
     'error',
     {
         zones: [
-            // disables cross-feature imports:
-            // eg. src/features/discussions should not import from src/features/comments, etc.
+            // feature間のインポートを無効化する:
+            // 例えば、src/features/discussionsはfrom src/features/commentsをインポートすべきではない、など。
             {
                 target: './src/features/auth',
                 from: './src/features',
@@ -97,35 +97,35 @@ To forbid cross-feature imports, you can use ESLint:
                 except: ['./users'],
             },
 
-            // More restrictions...
+            // 続き...
         ],
     },
 ],
 ```
 
-You might also want to enforce unidirectional codebase architecture. This means that the code should flow in one direction, from shared parts of the code to the application (shared -> features -> app). This is a good practice to follow as it makes the codebase more predictable and easier to understand.
+一方向のコードベースアーキテクチャを強制することもできます。これは、コードは共通部品からアプリケーションに向かって(共通→機能→アプリケーション)のように一方通行で流れることを意味します。これは、コードベースをより予測可能にし、理解を容易にするため、従うべき良い習慣です。
 
-![Unidirectional Codebase](./assets/unidirectional-codebase.png)
+![一方向のコードベース](./assets/unidirectional-codebase.png)
 
-As you can see, the shared parts can be used by any part of the codebase, but the features can only import from shared parts and the app can import from features and shared parts.
+ご覧の通り、共通部品はコードベースのいろいろな部品で使われています。しかし、featuresは共通部品のみをインポートできます。また、appは共通部品とfeaturesをインポートできます。
 
-To enforce this, you can use ESLint:
+これを強制するためのESLintのルール:
 
 ```js
 'import/no-restricted-paths': [
     'error',
     {
     zones: [
-        // Previous restrictions...
+        // 省略したルール...
 
-        // enforce unidirectional codebase:
-        // e.g. src/app can import from src/features but not the other way around
+        // コードベースを一方向に強制する:
+        // 例えば、src/appはsrc/featuresをインポートできますが、逆はできません。
         {
             target: './src/features',
             from: './src/app',
         },
 
-        // e.g src/features and src/app can import from these shared modules but not the other way around
+        // 例えば、src/featuresとsrc/appはこれら共通部品をインポートできますが、逆はできません。
         {
             target: [
                 './src/components',
@@ -141,5 +141,5 @@ To enforce this, you can use ESLint:
 ],
 ```
 
-By following these practices, you can ensure that your codebase is well-organized, scalable, and maintainable. This will help you and your team to work more efficiently and effectively on the project.
-This approach can also make it easier to apply similar architecture to apps built with Next.js, Remix or React Native.
+この例に従うと、コードベースがよくまとまり、拡張性や保守性に優れたものにできます。これは、あなたとあなたのチームの作業をより効率的・効果的にするのを助けるでしょう。
+このアプローチはNext.js, Remix，React Nativeで構築されたアプリケーションに同様のアーキテクチャを適用することも容易になります。
